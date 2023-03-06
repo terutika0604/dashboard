@@ -19,6 +19,8 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
+
+          {/* セッティングマーク */}
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
             <TooltipComponent content="Setting" position="Top">
               <button
@@ -31,6 +33,8 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+
+          {/* サイドバー */}
           {activeMenu ? (
             <div className="w-72 fixed slider dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
@@ -41,6 +45,7 @@ const App = () => {
             </div>
           )}
 
+          {/* ナビゲーションバー */}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
               activeMenu ? 'md:ml-72' : 'flex-2'
@@ -51,6 +56,7 @@ const App = () => {
             </div>
           </div>
 
+          {/* ページリンク */}
           <div>
             <Routes>
               {/* ダッシュボード */}

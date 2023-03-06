@@ -7,8 +7,10 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { links } from '../data/dummy'
 
 const Sidebar = () => {
+  // サイドバーの状態
   const activeMenu = true
 
+  // リンクの状態によってclass切り替える用
   const activeLink =
     'flex item-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2'
   const normalLink =
@@ -20,8 +22,10 @@ const Sidebar = () => {
         className="ml-3 h-screen md:overflow-hidden
       overflow-auto md:hover:overflow-auto pb-10"
       >
+        {/* activeMenuがtrueの時のみ表示 */}
         {activeMenu && (
           <>
+          {/* サイドバーのタイトル部分 */}
             <div className="flex justify-between item-center">
               <Link
                 to="/"
@@ -41,7 +45,9 @@ const Sidebar = () => {
                 </button>
               </TooltipComponent>
             </div>
+            {/* サイドバーのリンク部分 */}
             <div className="mt-10">
+              {/* Demoデータからメニュー情報を持ってきて表示 */}
               {links.map((itme) => (
                 <div key={itme.title}>
                   <p className="text-gray-400 m-3 mt-4 uppercase">
