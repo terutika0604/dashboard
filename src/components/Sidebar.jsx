@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { SiShopware } from 'react-icons/si'
 import { MdOutlineCancel } from 'react-icons/md'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
 import { links } from '../data/dummy'
+import { useStateContext } from '../contexts/ContextProvider'
 
 const Sidebar = () => {
   // サイドバーの状態
-  const activeMenu = true
+  const { activeMenu, setActiveMenu } = useStateContext()
+  // const activeMenu = true
 
   // リンクの状態によってclass切り替える用
   const activeLink =
@@ -25,11 +27,11 @@ const Sidebar = () => {
         {/* activeMenuがtrueの時のみ表示 */}
         {activeMenu && (
           <>
-          {/* サイドバーのタイトル部分 */}
+            {/* サイドバーのタイトル部分 */}
             <div className="flex justify-between item-center">
               <Link
                 to="/"
-                onClick={() => {}}
+                onClick={() => setActiveMenu(false)}
                 className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
               >
                 <SiShopware />
@@ -38,10 +40,12 @@ const Sidebar = () => {
               <TooltipComponent content="Menu" position="BottomCenter">
                 <button
                   type="button"
-                  onClick={() => {}}
+                  onClick={() =>
+                    setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+                  }
                   className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
                 >
-                  <MdOutlineCancel />
+                  <MdOutlineCancel/>
                 </button>
               </TooltipComponent>
             </div>

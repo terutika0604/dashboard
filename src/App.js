@@ -8,12 +8,15 @@ import { Navbar, Header, Footer, Sidebar, ThemeSettings } from './components'
 import { Ecommerce, Orders, Calendar, Employees, Customers } from './pages'
 import './App.css'
 
+import { useStateContext } from './contexts/ContextProvider'
+
 const App = () => {
   registerLicense(
     'ORg4AjUWIQA/Gnt2VVhkQlFadVdJXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxQdkZjX39adXZRRWZYVUA='
   )
 
-  const activeMenu = true
+  const { activeMenu } = useStateContext()
+  // const activeMenu = true
 
   return (
     <div>
